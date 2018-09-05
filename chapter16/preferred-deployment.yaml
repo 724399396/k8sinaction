@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pref
+spec:
+  tempalte:
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIGnoredDuringExecution:
+          - weight: 80
+            preference:
+              matchExpressions:
+              - key: availablility-zone
+                operator: In
+                values:
+                - zone1
+          - weight: 20
+            preference:
+              matchExpressions:
+              - key: share-type
+                operator: In
+                values:
+                - dedicated
