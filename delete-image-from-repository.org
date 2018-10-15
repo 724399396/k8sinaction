@@ -1,0 +1,4 @@
+# query docker content digest
+curl --cacert ~/ca.crt -I -H "Accept: application/vnd.docker.distribution.manifest.v2+json" https://k8s-master1:5000/v2/jumpserver-asset/manifests/latest 
+# delete by previous get digest
+curl --cacert ~/ca.crt -I -H "Accept: application/vnd.docker.distribution.manifest.v2+json" -XDELETE https://k8s-master1:5000/v2/jumpserver-asset/manifests/<digest>
