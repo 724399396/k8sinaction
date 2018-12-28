@@ -4,4 +4,7 @@ metadata:
   name: default-deny
 spec:
   podSelector:
-    
+    matchExpressions:
+    - key: k
+      operator: In
+      values: [k]
